@@ -13,12 +13,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @SuppressWarnings("unused")
 public class CornDelightItems {
 
-    public static final List<Item> ITEMS = new ArrayList<>();
+    public static final ArrayList<Item> ITEMS = new ArrayList<>();
 
     public static final Item CORN = registerItem("corn",
             new Item(foodSettings(foodBuilder(2, 0.2F))));
