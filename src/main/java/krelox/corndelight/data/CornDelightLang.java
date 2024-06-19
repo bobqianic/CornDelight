@@ -15,7 +15,7 @@ public class CornDelightLang extends FabricLanguageProvider {
     public void generateTranslations(TranslationBuilder translationBuilder) {
         translationBuilder.add(CornDelightBlocks.CORN_CROP, "Corn");
         translationBuilder.add("corndelight.block.popcorn.barehand", "Use your bare hand to eat popcorn.");
-        CornDelightItems.items.forEach(item -> translationBuilder.add(item, formatName(item.toString())));
+        CornDelightItems.ITEMS.forEach(item -> translationBuilder.add(item, formatName(item.toString())));
     }
 
     @SuppressWarnings("deprecation")
