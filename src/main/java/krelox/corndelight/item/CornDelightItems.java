@@ -13,12 +13,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @SuppressWarnings("unused")
 public class CornDelightItems {
 
-    public static final List<Item> ITEMS = new ArrayList<>();
+    public static final ArrayList<Item> ITEMS = new ArrayList<>();
 
     public static final Item NACHOS = registerItem("nachos",
             new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1)));
