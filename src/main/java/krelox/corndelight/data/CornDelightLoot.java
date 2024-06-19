@@ -1,6 +1,5 @@
 package krelox.corndelight.data;
 
-import com.nhoryzon.mc.farmersdelight.block.FeastBlock;
 import krelox.corndelight.block.CornDelightBlocks;
 import krelox.corndelight.item.CornDelightItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -14,6 +13,7 @@ import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.predicate.StatePredicate;
+import vectorwing.farmersdelight.common.block.FeastBlock;
 
 public class CornDelightLoot extends FabricBlockLootTableProvider {
     public CornDelightLoot(FabricDataOutput dataOutput) {

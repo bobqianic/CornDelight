@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.7-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -11,18 +11,6 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
-	maven {
-		url "https://cursemaven.com"
-		content {
-			includeGroup "curse.maven"
-		}
-	}
-
 	maven {
 		name = "Greenhouse Maven"
 		url = 'https://maven.greenhouseteam.dev/releases/'
@@ -34,8 +22,6 @@ repositories {
 			includeGroup "com.jamieswhiteshirt"
 		}
 	}
-
-
 	maven {
 		url "https://jitpack.io/" // Fabric ASM
 		content {

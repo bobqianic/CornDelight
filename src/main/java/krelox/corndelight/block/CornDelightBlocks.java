@@ -1,11 +1,9 @@
 package krelox.corndelight.block;
 
-import com.nhoryzon.mc.farmersdelight.block.FeastBlock;
-import com.nhoryzon.mc.farmersdelight.block.WildCropBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 import krelox.corndelight.CornDelight;
 import krelox.corndelight.item.CornDelightItems;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,18 +15,22 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import vectorwing.farmersdelight.common.block.FeastBlock;
+import vectorwing.farmersdelight.common.block.WildCropBlock;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 public class CornDelightBlocks {
 
     public static final Block CORN_CROP = registerBlock("corn_crop",
             new CornCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
-    public static final Block WILD_CORN = registerBlockWithItem("wild_corn", new WildCropBlock());
+    public static final Block WILD_CORN = registerBlockWithItem("wild_corn",
+            new WildCropBlock(StatusEffects.SATURATION, 8, AbstractBlock.Settings.copy(Blocks.TALL_GRASS)));
     public static final Block CORN_CRATE = registerBlockWithItem("corn_crate",
             new Block(AbstractBlock.Settings.copy(ModBlocks.CARROT_CRATE.get())));
     public static final Block CORN_KERNEL_BAG = registerBlockWithItem("corn_kernel_bag",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL)));
     public static final Block NACHOS = registerBlock("nachos", new FeastBlock(
-            AbstractBlock.Settings.copy(Blocks.CAKE), CornDelightItems.NACHOS_BOWL, true) {
+            AbstractBlock.Settings.copy(Blocks.CAKE), () -> CornDelightItems.NACHOS_BOWL, true) {
         private static final VoxelShape PLATE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
         private static final VoxelShape NACHOS_SHAPE = VoxelShapes.combine(PLATE_SHAPE,
                 Block.createCuboidShape(2.0D, 2.0D, 2.0D, 14.0D, 5.0D, 14.0D), BooleanBiFunction.OR);

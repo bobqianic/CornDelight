@@ -18,7 +18,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class CornDelightItems {
 
-    public static List<Item> items = new ArrayList<>();
+    public static final List<Item> ITEMS = new ArrayList<>();
 
     public static final Item NACHOS = registerItem("nachos",
             new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1)));
@@ -101,7 +101,7 @@ public class CornDelightItems {
     }
 
     public static Item registerItem(String name, Item item) {
-        items.add(item);
+        ITEMS.add(item);
         return Registry.register(Registries.ITEM, new Identifier(CornDelight.MODID, name), item);
     }
 

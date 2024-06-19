@@ -1,6 +1,5 @@
 package krelox.corndelight.block;
 
-import com.nhoryzon.mc.farmersdelight.block.FeastBlock;
 import krelox.corndelight.CornDelight;
 import krelox.corndelight.item.CornDelightItems;
 import net.minecraft.block.AbstractBlock;
@@ -17,10 +16,11 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import vectorwing.farmersdelight.common.block.FeastBlock;
 
 public class PopcornBoxBlock extends FeastBlock {
     public PopcornBoxBlock() {
-        super(AbstractBlock.Settings.copy(Blocks.YELLOW_WOOL), CornDelightItems.CARAMEL_POPCORN, true);
+        super(AbstractBlock.Settings.copy(Blocks.YELLOW_WOOL), () -> CornDelightItems.CARAMEL_POPCORN, true);
     }
 
     @Override
