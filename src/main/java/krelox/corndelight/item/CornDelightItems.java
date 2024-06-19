@@ -18,7 +18,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class CornDelightItems {
 
-    public static List<Item> items = new ArrayList<>();
+    public static final List<Item> ITEMS = new ArrayList<>();
 
     public static final Item CORN = registerItem("corn",
             new Item(foodSettings(foodBuilder(2, 0.2F))));
@@ -98,7 +98,7 @@ public class CornDelightItems {
     }
 
     public static Item registerItem(String name, Item item) {
-        items.add(item);
+        ITEMS.add(item);
         return Registry.register(Registry.ITEM, new Identifier(CornDelight.MODID, name), item);
     }
 

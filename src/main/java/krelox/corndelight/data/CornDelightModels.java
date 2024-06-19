@@ -48,7 +48,7 @@ public class CornDelightModels extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        for (Item item : CornDelightItems.items) {
+        for (Item item : CornDelightItems.ITEMS) {
             if (!(item instanceof BlockItem))
                 itemModelGenerator.register(item, Models.GENERATED);
         }
