@@ -1,8 +1,8 @@
 package krelox.corndelight.item;
 
-import com.nhoryzon.mc.farmersdelight.item.ConsumableItem;
-import com.nhoryzon.mc.farmersdelight.item.DrinkableItem;
-import com.nhoryzon.mc.farmersdelight.registry.EffectsRegistry;
+import vectorwing.farmersdelight.common.item.ConsumableItem;
+import vectorwing.farmersdelight.common.item.DrinkableItem;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 import krelox.corndelight.CornDelight;
 import krelox.corndelight.block.CornDelightBlocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -43,17 +43,17 @@ public class CornDelightItems {
 
     public static final Item CREAMED_CORN = registerItem("creamed_corn",
             new ConsumableItem(foodSettings(foodBuilder(7, 0.5F)
-                    .statusEffect(new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 3600), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT.get(), 3600), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item CORN_SOUP = registerItem("corn_soup",
             new ConsumableItem(foodSettings(foodBuilder(10, 0.9F)
-                    .statusEffect(new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 3600), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT.get(), 3600), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item CREAMY_CORN_DRINK = registerItem("creamy_corn_drink",
             new DrinkableItem(foodSettings(foodBuilder(2, 0.6F).alwaysEdible()
-                    .statusEffect(new StatusEffectInstance(EffectsRegistry.COMFORT.get(), 1200), 1F)
+                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT.get(), 1200), 1F)
                     .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1200), 1F))
                     .maxCount(16).recipeRemainder(Items.GLASS_BOTTLE), true));
 
@@ -81,7 +81,7 @@ public class CornDelightItems {
 
     public static final Item CORNBREAD_STUFFING = registerItem("cornbread_stuffing",
             new ConsumableItem(foodSettings(foodBuilder(12, 1F)
-                    .statusEffect(new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), 6000), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.NOURISHMENT.get(), 6000), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item TORTILLA_CHIP = registerItem("tortilla_chip",
@@ -89,7 +89,7 @@ public class CornDelightItems {
 
     public static final Item NACHOS_BOWL = registerItem("nachos_bowl",
             new ConsumableItem(foodSettings(foodBuilder(12, 1F)
-                    .statusEffect(new StatusEffectInstance(EffectsRegistry.NOURISHMENT.get(), 6000), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.NOURISHMENT.get(), 6000), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     private static Item.Settings foodSettings(FoodComponent.Builder food) {

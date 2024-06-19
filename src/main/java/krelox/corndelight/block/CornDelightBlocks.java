@@ -2,7 +2,7 @@ package krelox.corndelight.block;
 
 import com.nhoryzon.mc.farmersdelight.block.FeastBlock;
 import com.nhoryzon.mc.farmersdelight.block.WildCropBlock;
-import com.nhoryzon.mc.farmersdelight.registry.BlocksRegistry;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 import krelox.corndelight.CornDelight;
 import krelox.corndelight.item.CornDelightItems;
 import net.minecraft.block.*;
@@ -24,7 +24,7 @@ public class CornDelightBlocks {
             new CornCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
     public static final Block WILD_CORN = registerBlockWithItem("wild_corn", new WildCropBlock());
     public static final Block CORN_CRATE = registerBlockWithItem("corn_crate",
-            new Block(AbstractBlock.Settings.copy(BlocksRegistry.CARROT_CRATE.get())));
+            new Block(AbstractBlock.Settings.copy(ModBlocks.CARROT_CRATE.get())));
     public static final Block CORN_KERNEL_BAG = registerBlockWithItem("corn_kernel_bag",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL)));
     public static final Block NACHOS = registerBlock("nachos", new FeastBlock(
@@ -39,7 +39,7 @@ public class CornDelightBlocks {
         }
 
         @Override
-        public ItemStack getServingStack(BlockState state) {
+        public ItemStack getServingItem(BlockState state) {
             return new ItemStack(CornDelightItems.NACHOS_BOWL);
         }
     });

@@ -1,6 +1,6 @@
 package krelox.corndelight.data;
 
-import com.nhoryzon.mc.farmersdelight.registry.TagsRegistry;
+import vectorwing.farmersdelight.common.tag.ModTags;
 import krelox.corndelight.block.CornDelightBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -15,6 +15,6 @@ public class CornDelightBlockTags extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(TagsRegistry.WILD_CROPS).add(CornDelightBlocks.WILD_CORN);
+        getOrCreateTagBuilder(ModTags.WILD_CROPS).add(CornDelightBlocks.WILD_CORN);
     }
 }

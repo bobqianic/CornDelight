@@ -1,6 +1,6 @@
 package krelox.corndelight.data;
 
-import com.nhoryzon.mc.farmersdelight.FarmersDelightMod;
+import vectorwing.farmersdelight.FarmersDelight;
 import krelox.corndelight.CornDelight;
 import krelox.corndelight.block.CornCropBlock;
 import krelox.corndelight.block.CornDelightBlocks;
@@ -30,19 +30,19 @@ public class CornDelightModels extends FabricModelProvider {
 
         TextureMap cornCrateMap = new TextureMap()
                 .put(TextureKey.SIDE, new Identifier(CornDelight.MODID, "block/corn_crate_side"))
-                .put(TextureKey.BOTTOM, new Identifier(FarmersDelightMod.MOD_ID, "block/crate_bottom"))
+                .put(TextureKey.BOTTOM, new Identifier(FarmersDelight.MODID, "block/crate_bottom"))
                 .put(TextureKey.TOP, new Identifier(CornDelight.MODID, "block/corn_crate_top"));
         blockStateModelGenerator.registerSingleton(CornDelightBlocks.CORN_CRATE, cornCrateMap,
                 TexturedModel.CUBE_BOTTOM_TOP.get(CornDelightBlocks.CORN_CRATE).getModel());
 
         TextureMap kernelBagMap = new TextureMap()
                 .put(TextureKey.PARTICLE, new Identifier(CornDelight.MODID, "block/corn_kernel_bag_top"))
-                .put(TextureKey.DOWN, new Identifier(FarmersDelightMod.MOD_ID, "block/rice_bag_bottom"))
+                .put(TextureKey.DOWN, new Identifier(FarmersDelight.MODID, "block/rice_bag_bottom"))
                 .put(TextureKey.UP, new Identifier(CornDelight.MODID, "block/corn_kernel_bag_top"))
-                .put(TextureKey.NORTH, new Identifier(FarmersDelightMod.MOD_ID, "block/rice_bag_side_tied"))
-                .put(TextureKey.SOUTH, new Identifier(FarmersDelightMod.MOD_ID, "block/rice_bag_side_tied"))
-                .put(TextureKey.EAST, new Identifier(FarmersDelightMod.MOD_ID, "block/rice_bag_side"))
-                .put(TextureKey.WEST, new Identifier(FarmersDelightMod.MOD_ID, "block/rice_bag_side"));
+                .put(TextureKey.NORTH, new Identifier(FarmersDelight.MODID, "block/rice_bag_side_tied"))
+                .put(TextureKey.SOUTH, new Identifier(FarmersDelight.MODID, "block/rice_bag_side_tied"))
+                .put(TextureKey.EAST, new Identifier(FarmersDelight.MODID, "block/rice_bag_side"))
+                .put(TextureKey.WEST, new Identifier(FarmersDelight.MODID, "block/rice_bag_side"));
         blockStateModelGenerator.registerSingleton(CornDelightBlocks.CORN_KERNEL_BAG, kernelBagMap, Models.CUBE);
     }
 
