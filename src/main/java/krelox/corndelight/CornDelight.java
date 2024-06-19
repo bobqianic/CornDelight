@@ -4,6 +4,7 @@ import krelox.corndelight.block.CornDelightBlocks;
 import krelox.corndelight.item.CornDelightItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -36,7 +37,16 @@ public class CornDelight implements ModInitializer {
         CornDelightItems.registerItems();
         CornDelightBlocks.registerBlocks();
 
+        registerCompostables();
+
         BiomeModifications.addFeature(context -> context.getBiome().getTemperature() > 0f && context.getBiome().getTemperature() <= 1f,
                 GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MODID, "patch_wild_corn")));
+    }
+
+    public static void registerCompostables() {
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(CornDelightItems.CORN_SEEDS, 0.3F);
+
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(CornDelightItems.CORN, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(CornDelightBlocks.WILD_CORN.asItem(), 0.65F);
     }
 }
