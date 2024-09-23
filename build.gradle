@@ -1,37 +1,26 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
-    id 'maven-publish'
+    id "fabric-loom" version "1.7-SNAPSHOT"
+    id "maven-publish"
 }
 
 version = "$minecraft_version-$mod_version"
-group = maven_group
+group = mod_group_id
 
 base {
-    archivesName = archives_base_name
+    archivesName = mod_id
 }
 
 repositories {
-    maven {
-        name "Greenhouse Maven"
-        url 'https://maven.greenhouseteam.dev/releases/'
-    }
-    maven { url "https://mvn.devos.one/releases/" }
-    maven {
-        url "https://maven.jamieswhiteshirt.com/libs-release" // Reach Entity Attributes (Required by Porting Lib)
-        content {
-            includeGroup "com.jamieswhiteshirt"
-        }
-    }
+    maven { url "https://repo.greenhouse.house/releases/" }
+    // maven { url "https://mvn.devos.one/releases/" } // Porting Lib
+    maven { url "https://repo.greenhouse.house/snapshots/" } // Temporary Porting Lib Fork for 1.21
     maven {
         url "https://jitpack.io/" // Fabric ASM
         content {
             excludeGroup "io.github.fabricators_of_create"
         }
     }
-    maven {
-        name "Modrinth"
-        url "https://api.modrinth.com/maven"
-    }
+    maven { url "https://api.modrinth.com/maven" }
 }
 
 loom {
@@ -42,7 +31,7 @@ loom {
             name "Data Generation"
             vmArg "-Dfabric-api.datagen"
             vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-            vmArg "-Dfabric-api.datagen.modid=corndelight"
+            vmArg "-Dfabric-api.datagen.modid=$mod_id"
 
             runDir "build/datagen"
         }
@@ -54,35 +43,53 @@ sourceSets {
     main {
         resources {
             srcDirs += [
-                    'src/main/generated'
+                    "src/main/generated"
             ]
         }
     }
 }
 dependencies {
-    minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+    minecraft "com.mojang:minecraft:$minecraft_version"
+    mappings "net.fabricmc:yarn:$yarn_mappings:v2"
+    modImplementation "net.fabricmc:fabric-loader:$loader_version"
 
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
 
-    modImplementation("vectorwing:FarmersDelight:${fdrf_version}") {
+    modImplementation("vectorwing:FarmersDelight:$fdrf_version") {
         exclude(group: "net.fabricmc")
     }
 
-    //modImplementation "maven.modrinth:jei:15.3.0.8"
+    modRuntimeOnly "maven.modrinth:emi:$emi_version"
+    modRuntimeOnly "maven.modrinth:modmenu:$modmenu_version"
 }
 
 processResources {
-    inputs.property "version", version
+    var replaceProperties = [
+            minecraft_min_version: minecraft_min_version,
+            minecraft_max_version: minecraft_max_version,
+            loader_version       : loader_version,
+
+            mod_id               : mod_id,
+            mod_name             : mod_name,
+            mod_version          : version,
+            mod_license          : mod_license,
+            mod_authors          : mod_authors,
+            mod_description      : mod_description,
+            mod_credits          : mod_credits,
+            mod_homepage         : mod_homepage,
+            mod_github           : mod_github,
+            fdrf_version         : fdrf_version
+    ]
+    // setting them as input
+    inputs.properties replaceProperties
 
     filesMatching("fabric.mod.json") {
-        expand "version": version
+        expand replaceProperties + [project: project]
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 17
+    it.options.release = 21
 }
 
 java {
@@ -91,8 +98,8 @@ java {
     // If you remove this line, sources will not be generated.
     withSourcesJar()
 
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {

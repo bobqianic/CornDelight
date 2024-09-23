@@ -105,7 +105,7 @@ public class CornCropBlock extends CropBlock {
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         BlockState upperState = world.getBlockState(pos.up());
         if (upperState.isOf(this)) {
             return !(this.isMature(upperState));
@@ -134,7 +134,7 @@ public class CornCropBlock extends CropBlock {
             BlockState top = world.getBlockState(pos.up());
             if (top.isOf(this)) {
                 Fertilizable growable = (Fertilizable) top.getBlock();
-                if (growable.isFertilizable(world, pos.up(), top, false)) {
+                if (growable.isFertilizable(world, pos.up(), top)) {
                     growable.grow(world, world.random, pos.up(), top);
                 }
             } else {

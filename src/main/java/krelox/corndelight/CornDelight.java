@@ -17,12 +17,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.GenerationStep;
 
 public class CornDelight implements ModInitializer {
-
     public static final String MODID = "corndelight";
 
     @SuppressWarnings("unused")
-    public static final ItemGroup CORN_DELIGHT = Registry.register(Registries.ITEM_GROUP, new Identifier(MODID, "corn_delight"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.corn_delight"))
+    public static final ItemGroup CORN_DELIGHT = Registry.register(Registries.ITEM_GROUP, Identifier.of(MODID, "corn_delight"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemGroup.corndelight"))
                     .icon(() -> new ItemStack(CornDelightItems.CORN)).entries(((displayContext, entries) -> CornDelightItems.ITEMS.forEach(entries::add))).build());
 
     @Override
@@ -33,7 +32,7 @@ public class CornDelight implements ModInitializer {
         registerCompostables();
 
         BiomeModifications.addFeature(context -> context.getBiome().getTemperature() > 0f && context.getBiome().getTemperature() <= 1f,
-                GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(MODID, "patch_wild_corn")));
+                GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(MODID, "patch_wild_corn")));
     }
 
     public static void registerCompostables() {

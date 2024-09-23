@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "corndelight:raw_tortilla"
+  },
+  "result": {
+    "id": "corndelight:tortilla"
+  }
+}

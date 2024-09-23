@@ -29,20 +29,20 @@ public class CornDelightModels extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(CornDelightBlocks.WILD_CORN, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         TextureMap cornCrateMap = new TextureMap()
-                .put(TextureKey.SIDE, new Identifier(CornDelight.MODID, "block/corn_crate_side"))
-                .put(TextureKey.BOTTOM, new Identifier(FarmersDelight.MODID, "block/crate_bottom"))
-                .put(TextureKey.TOP, new Identifier(CornDelight.MODID, "block/corn_crate_top"));
+                .put(TextureKey.SIDE, Identifier.of(CornDelight.MODID, "block/corn_crate_side"))
+                .put(TextureKey.BOTTOM, Identifier.of(FarmersDelight.MODID, "block/crate_bottom"))
+                .put(TextureKey.TOP, Identifier.of(CornDelight.MODID, "block/corn_crate_top"));
         blockStateModelGenerator.registerSingleton(CornDelightBlocks.CORN_CRATE, cornCrateMap,
                 TexturedModel.CUBE_BOTTOM_TOP.get(CornDelightBlocks.CORN_CRATE).getModel());
 
         TextureMap kernelBagMap = new TextureMap()
-                .put(TextureKey.PARTICLE, new Identifier(CornDelight.MODID, "block/corn_kernel_bag_top"))
-                .put(TextureKey.DOWN, new Identifier(FarmersDelight.MODID, "block/rice_bag_bottom"))
-                .put(TextureKey.UP, new Identifier(CornDelight.MODID, "block/corn_kernel_bag_top"))
-                .put(TextureKey.NORTH, new Identifier(FarmersDelight.MODID, "block/rice_bag_side_tied"))
-                .put(TextureKey.SOUTH, new Identifier(FarmersDelight.MODID, "block/rice_bag_side_tied"))
-                .put(TextureKey.EAST, new Identifier(FarmersDelight.MODID, "block/rice_bag_side"))
-                .put(TextureKey.WEST, new Identifier(FarmersDelight.MODID, "block/rice_bag_side"));
+                .put(TextureKey.PARTICLE, Identifier.of(CornDelight.MODID, "block/corn_kernel_bag_top"))
+                .put(TextureKey.DOWN, Identifier.of(FarmersDelight.MODID, "block/rice_bag_bottom"))
+                .put(TextureKey.UP, Identifier.of(CornDelight.MODID, "block/corn_kernel_bag_top"))
+                .put(TextureKey.NORTH, Identifier.of(FarmersDelight.MODID, "block/rice_bag_side_tied"))
+                .put(TextureKey.SOUTH, Identifier.of(FarmersDelight.MODID, "block/rice_bag_side_tied"))
+                .put(TextureKey.EAST, Identifier.of(FarmersDelight.MODID, "block/rice_bag_side"))
+                .put(TextureKey.WEST, Identifier.of(FarmersDelight.MODID, "block/rice_bag_side"));
         blockStateModelGenerator.registerSingleton(CornDelightBlocks.CORN_KERNEL_BAG, kernelBagMap, Models.CUBE);
     }
 
@@ -54,7 +54,7 @@ public class CornDelightModels extends FabricModelProvider {
         }
         itemModelGenerator.register(CornDelightItems.CORN_SEEDS, Models.GENERATED);
         itemModelGenerator.register(CornDelightItems.NACHOS, Models.GENERATED);
-        itemModelGenerator.register(CornDelightBlocks.POPCORN_BOX.asItem(), new Model(Optional.of(new Identifier(CornDelight.MODID,
+        itemModelGenerator.register(CornDelightBlocks.POPCORN_BOX.asItem(), new Model(Optional.of(Identifier.of(CornDelight.MODID,
                 "block/popcorn_box_stage0")), Optional.empty()));
     }
 

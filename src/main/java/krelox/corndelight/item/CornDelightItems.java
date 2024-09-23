@@ -1,22 +1,25 @@
 package krelox.corndelight.item;
 
-import vectorwing.farmersdelight.common.item.ConsumableItem;
-import vectorwing.farmersdelight.common.item.DrinkableItem;
-import vectorwing.farmersdelight.common.registry.ModEffects;
 import krelox.corndelight.CornDelight;
 import krelox.corndelight.block.CornDelightBlocks;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.*;
+import net.minecraft.item.AliasedBlockItem;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import vectorwing.farmersdelight.common.item.ConsumableItem;
+import vectorwing.farmersdelight.common.item.DrinkableItem;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 
 import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 public class CornDelightItems {
-
     public static final ArrayList<Item> ITEMS = new ArrayList<>();
 
     public static final Item NACHOS = registerItem("nachos",
@@ -42,17 +45,17 @@ public class CornDelightItems {
 
     public static final Item CREAMED_CORN = registerItem("creamed_corn",
             new ConsumableItem(foodSettings(foodBuilder(7, 0.5F)
-                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT.get(), 3600), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT, 3600), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item CORN_SOUP = registerItem("corn_soup",
             new ConsumableItem(foodSettings(foodBuilder(10, 0.9F)
-                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT.get(), 3600), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT, 3600), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item CREAMY_CORN_DRINK = registerItem("creamy_corn_drink",
             new DrinkableItem(foodSettings(foodBuilder(2, 0.6F).alwaysEdible()
-                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT.get(), 1200), 1F)
+                    .statusEffect(new StatusEffectInstance(ModEffects.COMFORT, 1200), 1F)
                     .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1200), 1F))
                     .maxCount(16).recipeRemainder(Items.GLASS_BOTTLE), true));
 
@@ -80,7 +83,7 @@ public class CornDelightItems {
 
     public static final Item CORNBREAD_STUFFING = registerItem("cornbread_stuffing",
             new ConsumableItem(foodSettings(foodBuilder(12, 1F)
-                    .statusEffect(new StatusEffectInstance(ModEffects.NOURISHMENT.get(), 6000), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.NOURISHMENT, 6000), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     public static final Item TORTILLA_CHIP = registerItem("tortilla_chip",
@@ -88,20 +91,20 @@ public class CornDelightItems {
 
     public static final Item NACHOS_BOWL = registerItem("nachos_bowl",
             new ConsumableItem(foodSettings(foodBuilder(12, 1F)
-                    .statusEffect(new StatusEffectInstance(ModEffects.NOURISHMENT.get(), 6000), 1F))
+                    .statusEffect(new StatusEffectInstance(ModEffects.NOURISHMENT, 6000), 1F))
                     .maxCount(16).recipeRemainder(Items.BOWL), true));
 
     private static Item.Settings foodSettings(FoodComponent.Builder food) {
         return new Item.Settings().food(food.build());
     }
 
-    private static FoodComponent.Builder foodBuilder(int hunger, float saturation) {
-        return new FoodComponent.Builder().hunger(hunger).saturationModifier(saturation);
+    private static FoodComponent.Builder foodBuilder(int nutrition, float saturation) {
+        return new FoodComponent.Builder().nutrition(nutrition).saturationModifier(saturation);
     }
 
     public static Item registerItem(String name, Item item) {
         ITEMS.add(item);
-        return Registry.register(Registries.ITEM, new Identifier(CornDelight.MODID, name), item);
+        return Registry.register(Registries.ITEM, Identifier.of(CornDelight.MODID, name), item);
     }
 
     public static void registerItems() {

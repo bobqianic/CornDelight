@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "#c:foods/cooked_meats/cooked_chicken",
+      "required": false
+    },
+    {
+      "id": "#c:foods/cooked_meats/cooked_beef",
+      "required": false
+    },
+    {
+      "id": "#c:foods/cooked_meats/cooked_mutton",
+      "required": false
+    },
+    {
+      "id": "#c:foods/cooked_meats/cooked_pork",
+      "required": false
+    }
+  ]
+}

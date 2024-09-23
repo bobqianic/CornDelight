@@ -11,8 +11,8 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -24,18 +24,18 @@ public class PopcornBoxBlock extends FeastBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        return world.isClient() && this.takeServing(world, pos, state, player).isAccepted() ?
-                ActionResult.SUCCESS : this.takeServing(world, pos, state, player);
+    public ItemActionResult onUseWithItem(ItemStack heldStack, BlockState state, World level, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        return level.isClient() && this.takeServing(level, pos, state, player).isAccepted() ?
+                ItemActionResult.SUCCESS : this.takeServing(level, pos, state, player);
     }
 
-    public ActionResult takeServing(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public ItemActionResult takeServing(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         int servings = state.get(SERVINGS);
 
         if (servings == 0) {
             world.playSound(null, pos, SoundEvents.BLOCK_WOOL_BREAK, SoundCategory.PLAYERS, 0.8F, 0.8F);
             world.removeBlock(pos, true);
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
 
         ItemStack serving = new ItemStack(CornDelightItems.CARAMEL_POPCORN);
@@ -44,7 +44,7 @@ public class PopcornBoxBlock extends FeastBlock {
         if (servings > 0) {
             if (!heldStack.isEmpty()) {
                 player.sendMessage(Text.translatable(CornDelight.MODID + ".block.popcorn.barehand"), true);
-                return ActionResult.PASS;
+                return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             }
             world.setBlockState(pos, state.with(SERVINGS, servings - 1), 3);
             if (!player.getInventory().insertStack(serving)) {
@@ -56,9 +56,9 @@ public class PopcornBoxBlock extends FeastBlock {
                 }
                 world.removeBlock(pos, false);
             }
-            world.playSound(null, pos, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            return ActionResult.SUCCESS;
+            world.playSound(null, pos, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC.value(), SoundCategory.BLOCKS, 1.0F, 1.0F);
+            return ItemActionResult.SUCCESS;
         }
-        return ActionResult.PASS;
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }

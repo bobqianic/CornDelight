@@ -13,18 +13,21 @@ import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.registry.RegistryWrapper;
 import vectorwing.farmersdelight.common.block.FeastBlock;
 
+import java.util.concurrent.CompletableFuture;
+
 public class CornDelightLoot extends FabricBlockLootTableProvider {
-    public CornDelightLoot(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public CornDelightLoot(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override
     public void generate() {
-        LootCondition.Builder corn_builder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.CORN_CROP)
+        LootCondition.Builder cornBuilder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.CORN_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(CropBlock.AGE, 7));
-        addDrop(CornDelightBlocks.CORN_CROP, block -> cropDrops(block, CornDelightItems.CORN, CornDelightItems.CORN_SEEDS, corn_builder));
+        addDrop(CornDelightBlocks.CORN_CROP, block -> cropDrops(block, CornDelightItems.CORN, CornDelightItems.CORN_SEEDS, cornBuilder));
 
         addDrop(CornDelightBlocks.WILD_CORN, block -> applyExplosionDecay(block, LootTable.builder()
                 .pool(LootPool.builder().conditionally(WITH_SHEARS.invert()).conditionally(RandomChanceLootCondition.builder(0.2F))
@@ -36,10 +39,10 @@ public class CornDelightLoot extends FabricBlockLootTableProvider {
         addDrop(CornDelightBlocks.CORN_CRATE, this::drops);
         addDrop(CornDelightBlocks.CORN_KERNEL_BAG, this::drops);
 
-        BlockStatePropertyLootCondition.Builder nachos_builder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.NACHOS)
+        BlockStatePropertyLootCondition.Builder nachosBuilder = BlockStatePropertyLootCondition.builder(CornDelightBlocks.NACHOS)
                 .properties(StatePredicate.Builder.create().exactMatch(FeastBlock.SERVINGS, 4));
         addDrop(CornDelightBlocks.NACHOS, block -> applyExplosionDecay(block, LootTable.builder()
-                .pool(LootPool.builder().with(ItemEntry.builder(block).conditionally(nachos_builder)
+                .pool(LootPool.builder().with(ItemEntry.builder(block).conditionally(nachosBuilder)
                         .alternatively(ItemEntry.builder(Items.BOWL))))));
     }
 }

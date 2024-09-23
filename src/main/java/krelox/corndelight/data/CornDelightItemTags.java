@@ -20,11 +20,11 @@ public class CornDelightItemTags extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(CornDelightTags.Items.CORN).add(CornDelightItems.CORN);
         getOrCreateTagBuilder(CornDelightTags.Items.CORN_SEEDS).add(CornDelightItems.CORN_SEEDS);
-        getOrCreateTagBuilder(CornDelightTags.Items.CORN_DELIGHT_MEAT)
-                .addTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_CHICKEN)
-                .addTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_BEEF)
-                .addTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_MUTTON)
-                .addTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_PORK);
+        getOrCreateTagBuilder(CornDelightTags.Items.FOODS_TORTILLA_MEATS)
+                .addOptionalTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_CHICKEN)
+                .addOptionalTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_BEEF)
+                .addOptionalTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_MUTTON)
+                .addOptionalTag(ConventionalTags.FOODS_COOKED_MEATS_COOKED_PORK);
 
         getOrCreateTagBuilder(ModTags.WILD_CROPS_ITEM).add(CornDelightBlocks.WILD_CORN.asItem());
     }

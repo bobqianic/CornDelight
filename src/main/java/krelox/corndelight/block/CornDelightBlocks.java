@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.math.BlockPos;
@@ -17,16 +18,14 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import vectorwing.farmersdelight.common.block.FeastBlock;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 public class CornDelightBlocks {
-
     public static final Block CORN_CROP = registerBlock("corn_crop",
             new CornCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
     public static final Block WILD_CORN = registerBlockWithItem("wild_corn",
             new WildCropBlock(StatusEffects.SATURATION, 8, AbstractBlock.Settings.copy(Blocks.TALL_GRASS)));
     public static final Block CORN_CRATE = registerBlockWithItem("corn_crate",
-            new Block(AbstractBlock.Settings.copy(ModBlocks.CARROT_CRATE.get())));
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)));
     public static final Block CORN_KERNEL_BAG = registerBlockWithItem("corn_kernel_bag",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL)));
     public static final Block NACHOS = registerBlock("nachos", new FeastBlock(
@@ -53,7 +52,7 @@ public class CornDelightBlocks {
     }
 
     private static Block registerBlock(String name, Block block) {
-        return Registry.register(Registries.BLOCK, new Identifier(CornDelight.MODID, name), block);
+        return Registry.register(Registries.BLOCK, Identifier.of(CornDelight.MODID, name), block);
     }
 
     public static void registerBlocks() {

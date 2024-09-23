@@ -1,21 +1,22 @@
 {
 	"schemaVersion": 1,
 	"id": "corndelight",
-	"version": "${version}",
+	"version": "$mod_version",
 	"name": "Corn Delight",
-	"description": "An a-maize-ing Farmer's Delight addon. Rewrite of Corn Delight for Fabric and Quilt",
+	"description": "$mod_description",
 	"authors": [
-		"KreloX (Author)",
-		"sz0999312 (Original Author)",
-		"yuriscat (Artist)"
+		"$mod_authors"
 	],
+    "contributors": [
+        "$mod_credits"
+    ],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/corn-delight-fabric",
-		"sources": "https://github.com/KreloX/CornDelight",
-		"issues": "https://github.com/KreloX/CornDelight/issues"
+		"homepage": "$mod_homepage",
+		"sources": "$mod_github",
+		"issues": "$mod_github/issues"
 	},
-	"license": "MIT License",
-	"icon": "assets/corndelight/icon.png",
+	"license": "$mod_license",
+	"icon": "assets/$mod_id/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -30,13 +31,10 @@
 	},
 	"mixins": [],
 	"depends": {
-		"fabricloader": ">=0.14.21",
-		"minecraft": "~1.20.1",
-		"java": ">=17",
+		"fabricloader": ">=$loader_version",
+		"minecraft": ">=$minecraft_min_version <$minecraft_max_version",
+		"java": ">=21",
 		"fabric-api": "*",
-		"farmersdelight": ">=1.20.1-2.1.0"
-	},
-	"suggests": {
-		"another-mod": "*"
+		"farmersdelight": ">=$fdrf_version"
 	}
 }

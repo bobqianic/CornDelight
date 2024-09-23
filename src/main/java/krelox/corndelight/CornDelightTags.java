@@ -9,14 +9,14 @@ public class CornDelightTags {
     public static class Items {
         public static final TagKey<Item> CORN = createCommonTag("crops/corn");
         public static final TagKey<Item> CORN_SEEDS = createCommonTag("seeds/corn");
-        public static final TagKey<Item> CORN_DELIGHT_MEAT = createTag("corn_delight_meat");
+        public static final TagKey<Item> FOODS_TORTILLA_MEATS = createTag("foods/tortilla_meats");
 
         private static TagKey<Item> createTag(String path) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier(CornDelight.MODID, path));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of(CornDelight.MODID, path));
         }
 
         private static TagKey<Item> createCommonTag(String path) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier("c", path));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of("c", path));
         }
     }
 }
