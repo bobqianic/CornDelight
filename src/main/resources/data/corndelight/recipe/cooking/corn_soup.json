@@ -9,24 +9,26 @@
     },
     [
       {
-        "item": "minecraft:cooked_chicken"
+        "tag": "c:foods/cooked_chicken"
       },
       {
-        "item": "minecraft:cooked_beef"
+        "tag": "c:foods/cooked_beef"
       },
       {
-        "item": "minecraft:cooked_porkchop"
+        "tag": "c:foods/cooked_pork"
       },
       {
         "item": "minecraft:brown_mushroom"
       }
     ],
     {
-      "tag": "c:milks"
+      "tag": "c:foods/milk"
     }
   ],
+  "recipe_book_tab": "meals",
   "result": {
-    "item": "corndelight:corn_soup"
+    "count": 1,
+    "id": "corndelight:corn_soup"
   },
   "experience": 0.35,
   "cookingtime": 200

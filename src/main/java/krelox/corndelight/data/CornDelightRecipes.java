@@ -17,7 +17,7 @@ import net.minecraft.recipe.SmeltingRecipe;
 import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
-import vectorwing.farmersdelight.common.tag.ConventionalTags;
+import vectorwing.farmersdelight.common.tag.CommonTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -50,7 +50,7 @@ public class CornDelightRecipes extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, CornDelightItems.CORNBREAD_BATTER, 3)
                 .input(CornDelightTags.Items.CORN)
                 .input(CornDelightTags.Items.CORN)
-                .input(ConventionalTags.MILKS)
+                .input(CommonTags.FOODS_MILK)
                 .input(Items.EGG)
                 .criterion(hasItem(CornDelightItems.CORN), conditionsFromTag(CornDelightTags.Items.CORN))
                 .offerTo(exporter);
@@ -63,8 +63,8 @@ public class CornDelightRecipes extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, CornDelightItems.TACO)
                 .input(CornDelightItems.TORTILLA)
-                .input(ConventionalTags.CROPS_CABBAGE)
-                .input(ConventionalTags.CROPS_ONION)
+                .input(CommonTags.CROPS_CABBAGE)
+                .input(CommonTags.CROPS_ONION)
                 .input(CornDelightTags.Items.FOODS_TORTILLA_MEATS)
                 .criterion(hasItem(CornDelightItems.TORTILLA), conditionsFromItem(CornDelightItems.TORTILLA))
                 .offerTo(exporter);

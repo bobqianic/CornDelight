@@ -5,8 +5,10 @@
       "tag": "c:crops/corn"
     }
   ],
+  "recipe_book_tab": "meals",
   "result": {
-    "item": "corndelight:boiled_corn"
+    "count": 1,
+    "id": "corndelight:boiled_corn"
   },
   "experience": 0.15,
   "cookingtime": 100

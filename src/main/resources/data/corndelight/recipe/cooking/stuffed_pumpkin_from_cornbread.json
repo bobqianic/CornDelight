@@ -17,11 +17,14 @@
       "item": "minecraft:sweet_berries"
     }
   ],
+  "recipe_book_tab": "meals",
   "result": {
-    "item": "farmersdelight:stuffed_pumpkin_block"
+    "count": 1,
+    "id": "farmersdelight:stuffed_pumpkin_block"
   },
   "container": {
-    "item": "minecraft:pumpkin"
+    "count": 1,
+    "id": "minecraft:pumpkin"
   },
   "experience": 0.5,
   "cookingtime": 400

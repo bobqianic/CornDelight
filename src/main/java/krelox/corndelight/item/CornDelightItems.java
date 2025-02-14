@@ -22,8 +22,8 @@ import java.util.ArrayList;
 public class CornDelightItems {
     public static final ArrayList<Item> ITEMS = new ArrayList<>();
 
-    public static final Item NACHOS = registerItem("nachos",
-            new BlockItem(CornDelightBlocks.NACHOS, new Item.Settings().maxCount(1)));
+    public static final Item NACHOS_BLOCK = registerItem("nachos_block",
+            new BlockItem(CornDelightBlocks.NACHOS_BLOCK, new Item.Settings().maxCount(1)));
 
     public static final Item CORN = registerItem("corn",
             new Item(foodSettings(foodBuilder(2, 0.2F))));

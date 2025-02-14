@@ -16,14 +16,14 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "corndelight:nachos",
+                  "block": "corndelight:nachos_block",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "servings": "4"
                   }
                 }
               ],
-              "name": "corndelight:nachos"
+              "name": "corndelight:nachos_block"
             },
             {
               "type": "minecraft:item",

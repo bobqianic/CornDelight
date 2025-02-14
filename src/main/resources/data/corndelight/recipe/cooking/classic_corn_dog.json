@@ -5,14 +5,16 @@
       "item": "corndelight:cornbread_batter"
     },
     {
-      "tag": "corndelight:corn_delight_meat"
+      "tag": "corndelight:foods/tortilla_meats"
     },
     {
       "item": "farmersdelight:tomato_sauce"
     }
   ],
+  "recipe_book_tab": "meals",
   "result": {
-    "item": "corndelight:classic_corn_dog"
+    "count": 1,
+    "id": "corndelight:classic_corn_dog"
   },
   "experience": 0.5,
   "cookingtime": 200

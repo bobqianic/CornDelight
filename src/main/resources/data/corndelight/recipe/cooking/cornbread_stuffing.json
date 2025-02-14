@@ -14,8 +14,10 @@
       "item": "minecraft:sweet_berries"
     }
   ],
+  "recipe_book_tab": "meals",
   "result": {
-    "item": "corndelight:cornbread_stuffing"
+    "count": 1,
+    "id": "corndelight:cornbread_stuffing"
   },
   "experience": 0.5,
   "cookingtime": 200

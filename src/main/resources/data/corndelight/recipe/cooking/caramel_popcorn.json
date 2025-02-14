@@ -5,14 +5,13 @@
       "tag": "c:seeds/corn"
     },
     {
-      "tag": "c:seeds/corn"
-    },
-    {
-      "tag": "c:milks"
+      "item": "minecraft:sugar"
     }
   ],
+  "recipe_book_tab": "meals",
   "result": {
-    "item": "corndelight:creamed_corn"
+    "count": 1,
+    "id": "corndelight:caramel_popcorn"
   },
   "experience": 0.35,
   "cookingtime": 200

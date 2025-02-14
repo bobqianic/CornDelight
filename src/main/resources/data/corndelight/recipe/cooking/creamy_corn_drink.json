@@ -5,14 +5,16 @@
       "tag": "c:crops/corn"
     },
     {
-      "tag": "c:milks"
+      "tag": "c:foods/milk"
     },
     {
       "item": "minecraft:sugar"
     }
   ],
+  "recipe_book_tab": "drinks",
   "result": {
-    "item": "corndelight:creamy_corn_drink"
+    "count": 1,
+    "id": "corndelight:creamy_corn_drink"
   },
   "experience": 0.35,
   "cookingtime": 200

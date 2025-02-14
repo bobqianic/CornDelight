@@ -8,20 +8,23 @@
       "item": "corndelight:tortilla_chip"
     },
     {
-      "tag": "corndelight:corn_delight_meat"
+      "tag": "corndelight:foods/tortilla_meats"
     },
     {
-      "tag": "c:milks"
+      "tag": "c:foods/milk"
     },
     {
       "item": "farmersdelight:tomato_sauce"
     }
   ],
+  "recipe_book_tab": "meals",
   "result": {
-    "item": "corndelight:nachos"
+    "count": 1,
+    "id": "corndelight:nachos_block"
   },
   "container": {
-    "item": "minecraft:bowl"
+    "count": 1,
+    "id": "minecraft:bowl"
   },
   "experience": 0.35,
   "cookingtime": 200

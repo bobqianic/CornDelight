@@ -28,7 +28,7 @@ public class CornDelightBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)));
     public static final Block CORN_KERNEL_BAG = registerBlockWithItem("corn_kernel_bag",
             new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL)));
-    public static final Block NACHOS = registerBlock("nachos", new FeastBlock(
+    public static final Block NACHOS_BLOCK = registerBlock("nachos_block", new FeastBlock(
             AbstractBlock.Settings.copy(Blocks.CAKE), () -> CornDelightItems.NACHOS_BOWL, true) {
         private static final VoxelShape PLATE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
         private static final VoxelShape NACHOS_SHAPE = VoxelShapes.combine(PLATE_SHAPE,
