@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "corndelight:tortilla"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  },
+  "result": [
+    {
+      "item": {
+        "id": "corndelight:tortilla_chip",
+        "count": 3
+      }
+    },
+    {
+      "item": {
+        "id": "corndelight:tortilla_chip",
+        "chance": 0.5
+      }
+    }
+  ]
+}
