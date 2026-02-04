@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_corn_seeds": {
+    "has_corn": {
       "conditions": {
         "items": [
           {
-            "items": "corndelight:corn_seeds"
+            "items": "corndelight:corn"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "corndelight:corn_kernel_bag"
+        "recipe": "corndelight:cooking/boiled_corn"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_corn_seeds"
+      "has_corn"
     ]
   ],
   "rewards": {
     "recipes": [
-      "corndelight:corn_kernel_bag"
+      "corndelight:cooking/boiled_corn"
     ]
   }
 }
